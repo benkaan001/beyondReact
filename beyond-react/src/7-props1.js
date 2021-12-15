@@ -7,6 +7,9 @@ import './index.css'
 //prop that stands for properties is basically an argument that we pass into our
 //function as a parameter. We can name it however we like, but the convention is prop
 
+// in order to pass the props (object) into the book function, we need to go to
+// where we render the Book in " prop-name =' prop-value'" pairs
+
 // when we console log we see two objects and now we can pass whatever value
 // that we would like to pass for each individual book object
 

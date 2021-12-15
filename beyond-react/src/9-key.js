@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom'
 // add CSS
 import './index.css'
 
+// in order to keep track, React requires us to use some sort of unique id key.
+// this typically comes from DB liek _id, but in this case we will set it up manually
+
 const books = [
   {
     id: 0,
@@ -26,27 +29,21 @@ const books = [
   },
 ]
 
+// notice how we can also pass in the index and just use that index value for our
+// key value. However, indexing is more appropriate if our data is not changing frequently
+
 const Booklist = () => {
   return (
     <section className='booklist'>
-      {books.map((potato) => {
-        return <Book key={potato.id} {...potato}></Book>
+      {books.map((potato, index) => {
+        return <Book key={potato.id} book={potato}></Book>
       })}
     </section>
   )
 }
 
-//****************************************************************************
-// This would also be an alternative option in which we pass in the destructured
-// props diectly as argument into Book
-
-// const Book = ({img, title, author}) => {
-//   return
-// }
-//****************************************************************************
-
 const Book = (props) => {
-  const { img, title, author } = props
+  const { img, title, author } = props.book
 
   return (
     <article className='book'>
